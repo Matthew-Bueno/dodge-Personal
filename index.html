@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodge</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="dodgePic.png">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1 id="enemyInfo" onclick="enemyInfo()">Enemy Info / Extra Game Info</h1>
+            <h1 class="head1">Dodge</h1>
+            <h1 id="changeColor" onclick="changeColor()">Change Color Theme</h1>
+        </div>
+        
+        <h2 class="head1">Info:</h2>
+
+        <div id="rules">
+            <p>1. Start with 3 lives</p>
+            <p>2. Use W, A, S, D or your arrow keys to move up, down, left, or right</p>
+            <p>3. You must survive for 1 min</p>
+            <p>4. If you get hit by an enemy you will lose 1 life</p>
+            <p>5. Once you lose all 3 lives you will be able to restart over</p>
+            <p>6. If you survive for the whole time you will get the option to get keep going until you lose all lives</p>
+        </div>
+        <button class="play" id="startGame" onclick="play()">Start Game</button>
+    </div>
+
+    <div id="overlay">
+        <div id="enemyPopup">
+            <h2>Enemy Info</h2>
+            <p class="enemyInfoBackground" style="color: red;">Red: This enemy will follow you</p>
+            <p class="enemyInfoBackground" style="color: grey;">Grey: This enemy will only moves horizontally and vertically randomly</p>
+            <p class="enemyInfoBackground" style="color: orange;">Orange: This enemy is random but it only moves diagonally</p>
+            <p class="enemyInfoBackground" style="color: pink;">Pink: This enemy will follow you but always stop right before it hits you</p>
+            <p class="enemyInfoBackground">❗You have a chance to go through the enemies!</p>
+            <button onclick="closeEnemyInfo()">Close</button>
+        </div>
+    </div>
+    
+    <div id="holder1">
+    <div id="hearts"></div>
+
+    <div id="timer">
+        <div id="countdown"></div>
+    </div>
+    </div>
+    
+    <div id="grid" class="grid">
+        <div id="player"></div>
+        <div id="enemyRed"></div>
+        <div id="enemyGrey"></div>
+        <div id="enemyOrange"></div>
+        <div id="enemyPink"></div>
+    </div>
+
+    <div id="loseScreen" style="display: none;">
+        <div class="screenCard">
+            <h1>You Lose 😭</h1>
+            <button onclick="mainMenu()">Main Menu</button>
+        </div>
+    </div>
+
+    <div id="winScreen" style="display: none;">
+        <div class="screenCard">
+            <h1>You Win 🎉</h1>
+            <button onclick="mainMenu()">Main Menu</button>
+        </div>
+    </div>
+</body>
+</html>

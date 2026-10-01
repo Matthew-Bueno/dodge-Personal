@@ -1,0 +1,269 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(90deg, rgb(84, 206, 251), rgb(97, 145, 234), rgb(255, 187, 199));
+}
+
+body.colorChange,#loseScreen.colorChange,
+#winScreen.colorChange{
+    background: linear-gradient(90deg, black, rgb(50, 50, 50));
+}
+
+#container{
+    margin-top: 60px;
+}
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#enemyInfo{
+    position: absolute;
+    left: 20px;
+    width: 450px;
+    text-align: center;
+    border: 2px, solid, white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.head1{
+    text-align: center;
+    color: white;
+}
+
+#changeColor{
+    position: absolute;
+    right: 20px;
+    width: 345px;
+    text-align: center;
+    border: 2px, solid, white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#rules{
+    width: 450px;
+    border: 3px solid white;
+    padding: 20px;
+    text-align: left;
+    margin: 20px auto;
+}
+
+#rules, p{
+    margin-top: 10px;
+    color: white;
+}
+
+#overlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#enemyPopup{
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 15px;
+    width: 500px;
+    text-align: center;
+}
+
+.enemyInfoBackground{
+    color: black;
+    padding: 10px;
+}
+
+#holder1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 40px;
+}
+
+#hearts{
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    left: 20px;
+}
+
+.heart{
+    position: relative;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(red, rgb(255, 124, 124));
+    transform: rotate(-45deg);
+    box-shadow: 0px 0px 15px 1px red;
+}
+
+.heart::before{
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: red;
+    box-shadow: 0px 0px 15px 5px red;
+    border-radius: 50px;
+    top: -13px;
+    left: 0px;
+}
+
+.heart::after{
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(red, red, red, red, red, rgb(255, 124, 124));
+    box-shadow: 0px 0px 15px 2px red;
+    border-radius: 50px;
+    top: 0px;
+    left: 13px;
+}
+
+#timer{
+    text-align: center;
+    font-size: 38px;
+    color: white;
+}
+
+.grid{
+    display: none;
+    position: relative;
+    width: 700px;
+    height: 700px;
+    margin: 40px auto;
+    border: 2px solid white;
+    background:
+        linear-gradient(white 1px, transparent 1px),
+        linear-gradient(90deg, white 1px, transparent 1px);
+    background-size: 100px 100px;
+}
+
+#player{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(90deg,white, rgba(204, 204, 204, 0.952));
+    box-shadow: 0px 0px 20px 5px white;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+#player.flash{
+    background: yellow;
+    box-shadow: 0px 0px 20px 10px yellow;
+    transition: all 0.3s ease;
+}
+
+#enemyRed{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(90deg,red, rgb(180, 0, 0));
+    box-shadow: 0px 0px 20px 5px red;
+    border-radius: 50px;
+    transition: all 0.7s ease;
+}
+
+#enemyGrey{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(90deg, grey, rgb(114, 114, 114));
+    box-shadow: 0px 0px 20px 5px grey;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+}
+
+#enemyOrange{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(90deg, orange, rgb(209, 136, 0));
+    box-shadow: 0px 0px 20px 5px orange;
+    border-radius: 50px;
+    transition: all 0.6s ease;
+}
+
+#enemyPink{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(90deg, pink, rgb(201, 146, 155));
+    box-shadow: 0px 0px 20px 5px pink;
+    border-radius: 50px;
+    transition: all 0.6s ease;
+}
+
+#loseScreen,
+#winScreen{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(90deg, rgb(84, 206, 251), rgb(97, 145, 234), rgb(255, 187, 199));
+}
+
+#loseScreen h1,
+#winScreen h1{
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background: white;
+}
+
+.screenCard{
+    width: 300px;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 5px 5px 30px 0px black;
+}
+
+button{
+    background: linear-gradient(135deg, rgb(0, 183, 255), rgb(0, 132, 255));
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+
+
+.border{
+    border: 1px solid white;
+}
